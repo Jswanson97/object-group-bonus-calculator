@@ -15,7 +15,7 @@ const employees = [
   {
     name: 'Scout',
     employeeNumber: '6243',
-    annualSalary: '74750',
+    annualSalary: '74750', //74750
     reviewRating: 5
   },
   {
@@ -32,7 +32,7 @@ const employees = [
   }
 ];
 
-console.log('array of employee data: ',  employees );
+//console.log('array of employee data: ',  employees );
 
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
@@ -43,6 +43,15 @@ console.log('array of employee data: ',  employees );
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+//Function that takes in atticus and looks for his employee #, annual salary and reveiw rating
+
+
+// function calculateBonus () {
+  
+// }
+
+
+//Declare each employee (start with just Atticus) as an object that includes 'Name' 'bonusPercentage' 'totalCompensation' 'totalBonus'
 
 
 
@@ -50,8 +59,34 @@ console.log('array of employee data: ',  employees );
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  
-  
+  let bonus = 0;
+  if (employee.reviewRating === 3) {
+    bonus += .04;
+    //console.log (bonus);
+  }
+  else if (employee.reviewRating === 4){
+    bonus += .06;
+    //console.log (bonus);
+  }
+  else if (employee.reviewRating === 5){
+    bonus += .1;
+    //console.log (bonus);
+  }
+  if (employee.employeeNumber.length < 5) {
+    bonus += .05;
+    //console.log (bonus);
+  }
+  if (employee.annualSalary > 65000) {
+    bonus -= .01;
+    
+  }
+  if (bonus > .13) {
+    bonus = .13;
+  }
+  else if (bonus < 0){
+    bonus = 0;
+  }
   // return new object with bonus results
-
+console.log(bonus);
 }
+calculateIndividualEmployeeBonus(employees[2]);
